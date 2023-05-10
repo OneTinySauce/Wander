@@ -681,10 +681,10 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(131089, 262144, 3, 458765, 0, 4, 393238, 131076, 0, 720915, 4, 0, 655373, 4, 0, 786454, 131072, 4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 226)
+position = Vector2(288, 251)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_5d4ga")]
-position = Vector2(288, 226)
+position = Vector2(288, 251)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
