@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbrtns1ao44wk"]
+
+[ext_resource type="Script" path="res://Levels/Area2D.gd" id="1_mkouq"]
+[ext_resource type="Texture2D" uid="uid://cdsk1xg5cphwx" path="res://Art/TileMap/rock-wide-arch.png" id="2_eq30e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r4ly"]
+size = Vector2(58, 19.5)
+
+[sub_resource type="Animation" id="Animation_ce5c0"]
+resource_name = "TransitionStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextLevelDoor/CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextLevelDoor/CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_4ntjx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextLevelDoor/CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextLevelDoor/CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6n06a"]
+_data = {
+"RESET": SubResource("Animation_4ntjx"),
+"TransitionStart": SubResource("Animation_ce5c0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fys0k"]
+size = Vector2(72, 24)
+
+[node name="NextLevelDoor" type="Area2D"]
+position = Vector2(33, -54)
+script = ExtResource("1_mkouq")
+
+[node name="NextLevelDoor" type="Sprite2D" parent="."]
+texture = ExtResource("2_eq30e")
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7.25)
+shape = SubResource("RectangleShape2D_5r4ly")
+
+[node name="LevelTransitionAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6n06a")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_fys0k")
+debug_color = Color(0.780392, 0.290196, 0.819608, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
