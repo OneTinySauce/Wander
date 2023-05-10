@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0psiuu25f1tt"]
+
+[ext_resource type="Script" path="res://Characters/the_wander.gd" id="1_1hewf"]
+[ext_resource type="Texture2D" uid="uid://bnc663twds4y3" path="res://Art/Characters/mc.png" id="1_od2hm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smf8p"]
+size = Vector2(12, 5)
+
+[node name="TheWander" type="CharacterBody2D"]
+script = ExtResource("1_1hewf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_od2hm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_smf8p")

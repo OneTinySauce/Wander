@@ -1,0 +1,40 @@
+[gd_scene load_steps=12 format=3 uid="uid://cifybtdpeqg70"]
+
+[ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="1_v2i7y"]
+[ext_resource type="Texture2D" uid="uid://brklxorejila1" path="res://Art/TileMap/rock-wall_tile-map1.png" id="2_uxem8"]
+[ext_resource type="Texture2D" uid="uid://cdsk1xg5cphwx" path="res://Art/TileMap/rock-wide-arch.png" id="3_r4stu"]
+[ext_resource type="Texture2D" uid="uid://butw3ckbi2kyw" path="res://Art/TileMap/roock-Flor_tile-map1.png" id="4_mfdt0"]
+[ext_resource type="Texture2D" uid="uid://b4nefceqpg0au" path="res://Art/TileMap/wood-totem.png" id="5_jwa8e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpkft"]
+texture = ExtResource("1_v2i7y")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bka4r"]
+texture = ExtResource("2_uxem8")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kssua"]
+texture = ExtResource("3_r4stu")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oljn2"]
+texture = ExtResource("4_mfdt0")
+5:0/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2siiu"]
+texture = ExtResource("5_jwa8e")
+
+[sub_resource type="TileSet" id="TileSet_vatdk"]
+sources/0 = SubResource("TileSetAtlasSource_tpkft")
+sources/1 = SubResource("TileSetAtlasSource_bka4r")
+sources/2 = SubResource("TileSetAtlasSource_kssua")
+sources/3 = SubResource("TileSetAtlasSource_oljn2")
+sources/4 = SubResource("TileSetAtlasSource_2siiu")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_vatdk")
+format = 2

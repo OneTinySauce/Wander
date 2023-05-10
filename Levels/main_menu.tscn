@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://derawl0jb20ra"]
+
+[ext_resource type="Script" path="res://Levels/Start.gd" id="1_ljx2f"]
+[ext_resource type="Texture2D" uid="uid://bnc663twds4y3" path="res://Art/Characters/mc.png" id="2_3nyb0"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1.02958)
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "- start -"
+script = ExtResource("1_ljx2f")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -15.5
+offset_right = 32.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.158963, 0.138844)
+
+[node name="Mc" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(13, 17)
+scale = Vector2(38.9524, 36.289)
+texture = ExtResource("2_3nyb0")
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_pressed"]
