@@ -8,12 +8,10 @@ extends CanvasLayer
 var dialog
 var phrase_num = 0
 var finished = false
-var per_player_process_mode
 
 func _ready():
 	# pause player actions
-	per_player_process_mode = player.process_mode
-	player.process_mode = 4
+	player.set_process_input(false)
 	# init dialog
 	dialog = get_dialog()
 	if dialog == null:
@@ -23,7 +21,7 @@ func _ready():
 
 func _exit_tree():
 	# resume player actions
-	player.process_mode = per_player_process_mode
+	player.set_process_input(true)
 
 func _process(delta):
 	# continue to next phrase if space pressed

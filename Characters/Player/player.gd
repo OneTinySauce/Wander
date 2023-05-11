@@ -11,7 +11,7 @@ const START_POSTION : Vector2 = Vector2(0,1)
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
 var speedScale : float = 1.0
-
+var input_vector = Vector2.ZERO
 
 
 func _ready():
@@ -19,13 +19,13 @@ func _ready():
 	# at start facing down
 	animationTree.set("parameters/Idle/blend_position", START_POSTION)
 
-func _physics_process(delta):
+func _input(event):
 	# Get input strength as a Vector2
-	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector = input_vector.normalized()
 
+func _physics_process(delta):
 	# if there's input, move accordingly
 	if input_vector != Vector2.ZERO:
 		# animation
