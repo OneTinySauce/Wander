@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6apnygfdnfc3"]
+[gd_scene load_steps=17 format=3 uid="uid://b6apnygfdnfc3"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_8vbop"]
 [ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="2_qw6cq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkcdyjfqluvqi" path="res://Characters/Player/player.tscn" id="6_6x84i"]
 [ext_resource type="AudioStream" uid="uid://c2luo25a8tq3" path="res://Music/Area_1_1.0.wav" id="7_q54im"]
 [ext_resource type="PackedScene" uid="uid://dbrtns1ao44wk" path="res://Levels/next_level_door.tscn" id="9_ry2jx"]
+[ext_resource type="PackedScene" uid="uid://cuakuu1g3vqt5" path="res://Dialogues/dialogue.tscn" id="10_vinks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("2_qw6cq")
@@ -606,10 +607,10 @@ texture = ExtResource("6_5ns5y")
 0:2/size_in_atlas = Vector2i(3, 2)
 0:2/0 = 0
 0:2/0/texture_origin = Vector2i(-16, 8)
-0:2/0/y_sort_origin = 1
+0:2/0/y_sort_origin = -2
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.5, 1, 4, 1, 4, 7, -5, 6.5)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -3, 6, -3, 6.5, 8, -3, 8)
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(-8, 8)
@@ -632,10 +633,10 @@ texture = ExtResource("6_5ns5y")
 6:0/size_in_atlas = Vector2i(3, 2)
 6:0/0 = 0
 6:0/0/texture_origin = Vector2i(-16, 8)
-6:0/0/y_sort_origin = 9
+6:0/0/y_sort_origin = -4
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.5, 0, 3, 0, 3.5, 6.5, -6, 6.5)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -4, 7, -4, 7, 6.5, -2, 6.5)
 9:0/size_in_atlas = Vector2i(3, 2)
 9:0/0 = 0
 9:0/0/texture_origin = Vector2i(-16, 8)
@@ -645,9 +646,10 @@ texture = ExtResource("6_5ns5y")
 6:2/size_in_atlas = Vector2i(3, 2)
 6:2/0 = 0
 6:2/0/texture_origin = Vector2i(-16, 8)
+6:2/0/y_sort_origin = -4
 6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:2/0/physics_layer_0/angular_velocity = 0.0
-6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.5, 0, 8, 0, 8, 6.5, -1, 6.5)
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -4, 7, -4, 7, 6.5, -2, 6.5)
 
 [sub_resource type="TileSet" id="TileSet_oe3lj"]
 physics_layer_0/collision_layer = 1
@@ -686,6 +688,10 @@ layer_2/tile_data = PackedInt32Array(524288, 524290, 0, 589822, 589828, 2, 52429
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(240, 146)
+limit_left = -22
+limit_top = -40
+limit_right = 715
+limit_bottom = 550
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_6x84i")]
 position = Vector2(240, 146)
@@ -698,3 +704,7 @@ stream = ExtResource("7_q54im")
 autoplay = true
 
 [node name="NextLevelDoor" parent="." instance=ExtResource("9_ry2jx")]
+
+[node name="Dialogue" parent="." instance=ExtResource("10_vinks")]
+process_mode = 3
+dialogue_path = "res://Dialogues/items.json"
