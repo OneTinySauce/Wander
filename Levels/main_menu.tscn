@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://derawl0jb20ra"]
+[gd_scene load_steps=4 format=3 uid="uid://derawl0jb20ra"]
 
 [ext_resource type="Script" path="res://Levels/Start.gd" id="1_ljx2f"]
 [ext_resource type="Texture2D" uid="uid://bnc663twds4y3" path="res://Art/Characters/mc.png" id="2_3nyb0"]
+[ext_resource type="AudioStream" uid="uid://cbqtdvd7veq3l" path="res://Music/MenuTheme_1.0.wav" id="3_71kel"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -52,5 +53,9 @@ texture = ExtResource("2_3nyb0")
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
 layout_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_71kel")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_pressed"]

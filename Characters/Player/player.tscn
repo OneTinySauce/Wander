@@ -1,7 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://dkcdyjfqluvqi"]
+[gd_scene load_steps=32 format=3 uid="uid://dkcdyjfqluvqi"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_xkade"]
 [ext_resource type="Texture2D" uid="uid://di15lltqx2ou0" path="res://Characters/Player/player_sprite.png" id="2_fdufk"]
+[ext_resource type="AudioStream" uid="uid://c5hfp7elvf638" path="res://Music/SFX/Wanderer_SFX_Door_Object_PickUp.mp3" id="3_f68yt"]
+[ext_resource type="AudioStream" uid="uid://083j26r7jyso" path="res://Music/SFX/Wanderer_SFX_Object_Place.mp3" id="4_4jiah"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jtl7f"]
 radius = 3.0
@@ -283,3 +285,11 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_xs1lx")
 parameters/Idle/blend_position = Vector2(-0.00232738, -0.122222)
 parameters/Run/BlendSpace2D/blend_position = Vector2(-0.00384122, 0.0350877)
 parameters/Run/runSpeedScale/scale = 1.0
+
+[node name="ItemPickedUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f68yt")
+volume_db = 5.0
+
+[node name="ItemPlaced" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4jiah")
+volume_db = 10.0

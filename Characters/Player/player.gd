@@ -12,7 +12,8 @@ const START_POSTION : Vector2 = Vector2(0,1)
 @onready var animationState = animationTree.get("parameters/playback")
 var speedScale : float = 1.0
 var input_vector = Vector2.ZERO
-
+var picked_item = null
+var per_item = null
 
 func pause_player():
 	# pause the player from moving, and change state to idle
@@ -35,6 +36,14 @@ func _input(event):
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector = input_vector.normalized()
+
+func _process(delta):
+	if per_item != picked_item:
+		if per_item:
+			$ItemPlaced.play()
+		if picked_item:
+			$ItemPickedUp.play()
+		per_item = picked_item
 
 func _physics_process(delta):
 	# if there's input, move accordingly

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d16jqscxave46"]
+[gd_scene load_steps=34 format=3 uid="uid://cwwlcaofnjnbs"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_5l8bp"]
 [ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="1_jgsd3"]
@@ -9,13 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://dkcdyjfqluvqi" path="res://Characters/Player/player.tscn" id="6_5d4ga"]
 [ext_resource type="Texture2D" uid="uid://cfk1vfbnn3i1c" path="res://Art/TileMap/floot-areal2.png" id="7_213nj"]
 [ext_resource type="Texture2D" uid="uid://jur5jhfudjkv" path="res://Art/TileMap/rock-32px-areal2-mini.png" id="8_mt3jn"]
-[ext_resource type="AudioStream" uid="uid://gadanhx3khhf" path="res://Music/Area_2_1.0.wav" id="10_bhlds"]
+[ext_resource type="AudioStream" uid="uid://c2luo25a8tq3" path="res://Music/Area_1_1.0.wav" id="10_y06cw"]
 [ext_resource type="PackedScene" uid="uid://dge2o81mfnodv" path="res://Items/bow.tscn" id="11_1nqsw"]
 [ext_resource type="PackedScene" uid="uid://rymp28xxye5d" path="res://Items/arrow.tscn" id="11_f2tew"]
-[ext_resource type="PackedScene" uid="uid://c6f2pmg5hl8he" path="res://Items/sward.tscn" id="13_y2u57"]
+[ext_resource type="AudioStream" uid="uid://yu60n3201nup" path="res://Music/SFX/Wanderer_SFX_Puzzle_Solve.mp3" id="11_ke720"]
+[ext_resource type="AudioStream" uid="uid://cn2xa4bfam6m4" path="res://Music/SFX/Wanderer_SFX_Puzzle_Fail.mp3" id="12_pnlcw"]
 [ext_resource type="PackedScene" uid="uid://dd8oi76a30jfl" path="res://Items/spear.tscn" id="14_20vv3"]
 [ext_resource type="PackedScene" uid="uid://co14w81msi81q" path="res://Levels/puzzle_door.tscn" id="15_enkql"]
 [ext_resource type="PackedScene" uid="uid://dbrtns1ao44wk" path="res://Levels/next_level_door.tscn" id="15_m2usr"]
+[ext_resource type="PackedScene" uid="uid://cbl4krob1o51g" path="res://Items/crown_pickable.tscn" id="17_t4l62"]
+[ext_resource type="Texture2D" uid="uid://bh2s70k20ws04" path="res://Art/Items/items_2.png" id="18_j5cry"]
+[ext_resource type="PackedScene" uid="uid://dfy1q05khkf6d" path="res://Items/sward_pickble.tscn" id="19_ai4cl"]
+[ext_resource type="Script" path="res://Items/pedestal.gd" id="19_jg2bw"]
+[ext_resource type="PackedScene" uid="uid://chh32ncluimue" path="res://Items/skull_pickable.tscn" id="20_uxnl2"]
+[ext_resource type="PackedScene" uid="uid://dtf8ekt8y8c4l" path="res://Items/shield_piackable.tscn" id="21_60qy4"]
+[ext_resource type="PackedScene" uid="uid://cbhyvxgrd7y4v" path="res://Items/papaer.tscn" id="22_80621"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("1_jgsd3")
@@ -964,6 +972,9 @@ sources/4 = SubResource("TileSetAtlasSource_6lxuv")
 sources/5 = SubResource("TileSetAtlasSource_d6i06")
 sources/6 = SubResource("TileSetAtlasSource_lj66r")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0waef"]
+radius = 14.0
+
 [node name="level1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_5l8bp")
@@ -998,27 +1009,28 @@ limit_right = 292
 limit_bottom = 213
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_5d4ga")]
-light_mask = 3
 position = Vector2(112, 196)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_bhlds")
+stream = ExtResource("10_y06cw")
 autoplay = true
+
+[node name="puzzle_solved" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ke720")
+
+[node name="puzzle_fail" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_pnlcw")
 
 [node name="Bow" parent="." instance=ExtResource("11_1nqsw")]
 position = Vector2(152, 89)
 rotation = -0.308275
 
-[node name="Sward" parent="." instance=ExtResource("13_y2u57")]
-position = Vector2(241, 164)
-rotation = -0.346423
-
 [node name="Spear" parent="." instance=ExtResource("14_20vv3")]
 visibility_layer = 1
-position = Vector2(244, 10)
+position = Vector2(209, 15)
 rotation = 1.4324
 
 [node name="Arrow" parent="." instance=ExtResource("11_f2tew")]
@@ -1029,9 +1041,13 @@ rotation = 2.34515
 position = Vector2(156, 119)
 rotation = -1.49052
 
+[node name="Paper" parent="." instance=ExtResource("22_80621")]
+position = Vector2(40, 108)
+rotation = 0.766054
+
 [node name="Arrow3" parent="." instance=ExtResource("11_f2tew")]
-position = Vector2(-16, 21)
-rotation = 0.777202
+position = Vector2(29, 25)
+rotation = -2.00496
 
 [node name="NextLevelDoor" parent="." instance=ExtResource("15_m2usr")]
 position = Vector2(112, -37)
@@ -1039,3 +1055,46 @@ to_level_path = "res://Levels/level_2.tscn"
 
 [node name="PuzzleDoor" parent="." instance=ExtResource("15_enkql")]
 position = Vector2(112, -40)
+
+[node name="Pedestal" type="Sprite2D" parent="."]
+position = Vector2(112, 24)
+rotation = 0.00124093
+texture = ExtResource("18_j5cry")
+region_enabled = true
+region_rect = Rect2(0, 16, 32, 16)
+script = ExtResource("19_jg2bw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pedestal"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pedestal/StaticBody2D"]
+polygon = PackedVector2Array(9, 8, -9, 8, -9, -6, 0, -6, 9, -6)
+
+[node name="Area2D" type="Area2D" parent="Pedestal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pedestal/Area2D"]
+shape = SubResource("CircleShape2D_0waef")
+
+[node name="CrownPickable" parent="." instance=ExtResource("17_t4l62")]
+position = Vector2(253, 1)
+
+[node name="SwardPickable" parent="." instance=ExtResource("19_ai4cl")]
+position = Vector2(208, 163)
+
+[node name="SkullPickable" parent="." instance=ExtResource("20_uxnl2")]
+position = Vector2(-14, 6)
+
+[node name="ShieldPickable" parent="." instance=ExtResource("21_60qy4")]
+position = Vector2(3, 163)
+
+[node name="Spear2" parent="." instance=ExtResource("14_20vv3")]
+visibility_layer = 1
+position = Vector2(70, 138)
+rotation = 2.8648
+
+[connection signal="puzzle_sloved" from="Pedestal" to="." method="_on_pedestal_puzzle_sloved"]
+[connection signal="puzzle_wrong" from="Pedestal" to="." method="_on_pedestal_puzzle_wrong"]
+[connection signal="area_entered" from="Pedestal/Area2D" to="Pedestal" method="_on_area_2d_area_entered" flags=18]
+[connection signal="area_entered" from="Pedestal/Area2D" to="CrownPickable" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Pedestal/Area2D" to="Pedestal" method="_on_area_2d_area_exited" flags=18]
+[connection signal="body_entered" from="Pedestal/Area2D" to="Pedestal" method="_on_area_2d_body_entered" flags=18]
+[connection signal="body_exited" from="Pedestal/Area2D" to="Pedestal" method="_on_area_2d_body_exited" flags=18]
