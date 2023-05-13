@@ -16,8 +16,6 @@ func _on_pedestal_puzzle_sloved():
 		$puzzle_solved.play()
 		$PuzzleDoor.open()
 
-
-
 func _on_pedestal_puzzle_wrong():
 	if !$puzzle_fail.is_playing():
 		$puzzle_fail.play()

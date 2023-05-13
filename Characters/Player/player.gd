@@ -69,6 +69,7 @@ func _physics_process(delta):
 
 func pick_state():
 	if(velocity != Vector2.ZERO):
+		#if picked_item != null: #todo: make a hold animation for the player
 		animationState.travel("Run")
 	else:
 		animationState.travel("Idle")
