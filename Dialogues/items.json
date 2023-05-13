@@ -1,4 +1,10 @@
 [
 	{"Name":"Arrow", "Text":"This broken arrow is still sharp"},
-	{"Name":"Arrow", "Text":"Ahhhh!"}
+	{"Name":"Arrow", "Text":"Ahhhh!"},
+	{"Name":"Bow", "Text":"This is a bow"},
+	{"Name":"Bow", "Text":"Bow test"},
+	{"Name":"Spear", "Text":"Spear test"},
+	{"Name":"Sward", "Text":"Sward test"},
+	{"Name":"Pickaxe", "Text":"Pickaxe test"},
+	{"Name":"Letter", "Text":"Letter?"},
 ]

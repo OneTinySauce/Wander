@@ -8,6 +8,7 @@ extends CanvasLayer
 var dialog
 var phrase_num = 0
 var finished = false
+var kind = null
 
 func _ready():
 	# pause player actions
@@ -40,8 +41,13 @@ func get_dialog():
 	if file:
 		var json = file.get_as_text()
 		var out = JSON.parse_string(json)
-		if typeof(out) == TYPE_ARRAY:
-			return out
+		var filtered_out = []
+		# check if the returned array contains dialogue for the current item kind
+		for line in out:
+			if line['Name'] == kind:
+				filtered_out.append(line)
+		if typeof(filtered_out) == TYPE_ARRAY:
+			return filtered_out
 		return null
 		
 func next_phrase():
