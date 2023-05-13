@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Dialogues/dialogue.gd" id="1_lm1oq"]
 [ext_resource type="FontFile" uid="uid://cq71ss4s7fw0y" path="res://Dialogues/PrStart.ttf" id="3_uerop"]
 
-[node name="Dialogue" type="CanvasLayer"]
+[node name="Dialogue" type="CanvasLayer" groups=["dialogue"]]
 script = ExtResource("1_lm1oq")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

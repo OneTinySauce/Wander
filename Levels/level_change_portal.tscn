@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcqagg87i0jb2"]
+
+[ext_resource type="Script" path="res://Levels/Area2D.gd" id="1_tg088"]
+[ext_resource type="PackedScene" uid="uid://bwohhofko6kme" path="res://Misc/fade_out_from_color.tscn" id="2_5jk16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r4ly"]
+size = Vector2(63.75, 14.9375)
+
+[sub_resource type="Animation" id="Animation_4ntjx"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ce5c0"]
+resource_name = "TransitionStart"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6n06a"]
+_data = {
+"RESET": SubResource("Animation_4ntjx"),
+"TransitionStart": SubResource("Animation_ce5c0")
+}
+
+[node name="Portal" type="Area2D"]
+position = Vector2(33, -54)
+script = ExtResource("1_tg088")
+to_level_path = "res://Levels/level_1.tscn"
+
+[node name="FadeOutFromColor" parent="." instance=ExtResource("2_5jk16")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5r4ly")
+
+[node name="LevelTransitionAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6n06a")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -11,7 +11,7 @@ var finished = false
 
 func _ready():
 	# pause player actions
-	player.set_process_input(false)
+	player.pause_player()
 	# init dialog
 	dialog = get_dialog()
 	if dialog == null:
@@ -21,7 +21,7 @@ func _ready():
 
 func _exit_tree():
 	# resume player actions
-	player.set_process_input(true)
+	player.resume_player()
 
 func _process(delta):
 	# continue to next phrase if space pressed

@@ -14,6 +14,17 @@ var speedScale : float = 1.0
 var input_vector = Vector2.ZERO
 
 
+func pause_player():
+	# pause the player from moving, and change state to idle
+	animationState.travel("Idle")
+	self.set_physics_process(false)
+	self.set_process_input(false)
+
+func resume_player():
+	# resume player actions.
+	self.set_physics_process(true)
+	self.set_process_input(true)
+	
 func _ready():
 	animationTree.active = true
 	# at start facing down

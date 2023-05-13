@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkytau45dpq6r"]
+
+[ext_resource type="Texture2D" uid="uid://curcdwrcepr28" path="res://Art/Items/item.png" id="1_2hk7u"]
+[ext_resource type="Script" path="res://Items/arrow.gd" id="2_f32gw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0waef"]
+radius = 12.0
+
+[node name="Sward" type="Sprite2D"]
+texture = ExtResource("1_2hk7u")
+region_enabled = true
+region_rect = Rect2(64, 32, 16, 16)
+script = ExtResource("2_f32gw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(8, -3, 8, 5, 2, 6, -6, 6, -6, -3, -5, -8, 3, -8)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0waef")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
