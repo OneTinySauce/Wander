@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtf8ekt8y8c4l"]
+
+[ext_resource type="Texture2D" uid="uid://bh2s70k20ws04" path="res://Art/Items/items_2.png" id="1_4t8mk"]
+[ext_resource type="Script" path="res://Items/pickableItem.gd" id="2_tct5h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0waef"]
+radius = 11.0
+
+[node name="ShieldPickable" type="Sprite2D"]
+texture = ExtResource("1_4t8mk")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+script = ExtResource("2_tct5h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(6, 4, 0, 7, -6, 4, -6, -7, 6, -7)
+
+[node name="Area2D" type="Area2D" parent="." groups=["PlaceableItem"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0waef")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

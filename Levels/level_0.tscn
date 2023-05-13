@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://butw3ckbi2kyw" path="res://Art/TileMap/roock-Flor_tile-map1.png" id="5_skxhs"]
 [ext_resource type="Texture2D" uid="uid://b4nefceqpg0au" path="res://Art/TileMap/wood-totem.png" id="6_5ns5y"]
 [ext_resource type="PackedScene" uid="uid://dkcdyjfqluvqi" path="res://Characters/Player/player.tscn" id="6_6x84i"]
-[ext_resource type="AudioStream" uid="uid://c2luo25a8tq3" path="res://Music/Area_1_1.0.wav" id="7_q54im"]
+[ext_resource type="AudioStream" uid="uid://drc223bxjw7kc" path="res://Music/Area_0_1.0.wav" id="8_y87vb"]
 [ext_resource type="PackedScene" uid="uid://dbrtns1ao44wk" path="res://Levels/next_level_door.tscn" id="10_dx3lh"]
 [ext_resource type="PackedScene" uid="uid://ca883djrqmshf" path="res://tree/tree.tscn" id="10_iblka"]
 
@@ -707,7 +707,7 @@ position = Vector2(240, 146)
 remote_path = NodePath("../../Camera2D")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_q54im")
+stream = ExtResource("8_y87vb")
 autoplay = true
 
 [node name="tree" parent="." instance=ExtResource("10_iblka")]

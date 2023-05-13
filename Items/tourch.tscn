@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwl7086u4ep4s"]
+
+[ext_resource type="Texture2D" uid="uid://bh2s70k20ws04" path="res://Art/Items/items_2.png" id="1_ofyvi"]
+
+[node name="tourch" type="Sprite2D"]
+texture = ExtResource("1_ofyvi")
+hframes = 2

@@ -1,9 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://co14w81msi81q"]
+[gd_scene load_steps=5 format=3 uid="uid://co14w81msi81q"]
 
 [ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="1_er178"]
+[ext_resource type="Script" path="res://Levels/puzzle_door.gd" id="2_rdnan"]
+[ext_resource type="AudioStream" uid="uid://vd3aqdsfuv4g" path="res://Music/SFX/Wanderer_SFX_Door_Open_short.mp3" id="3_8hcl7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbjtc"]
+size = Vector2(23, 24)
 
 [node name="PuzzleDoor" type="Sprite2D"]
 texture = ExtResource("1_er178")
 hframes = 3
 vframes = 2
-frame = 1
+frame = 5
+script = ExtResource("2_rdnan")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(16, 7)
+scale = Vector2(4.47321, 1)
+polygon = PackedVector2Array(-7.15369, 17, -7.15369, -10, 0, -10, 0, 17, -1.78842, 17, -0.894212, 14, -0.894212, -5, -5.97026, -5, -5.97026, 14, -5.2996, 17)
+
+[node name="doorclosed" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 12)
+shape = SubResource("RectangleShape2D_lbjtc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8hcl7")
+volume_db = 10.0
