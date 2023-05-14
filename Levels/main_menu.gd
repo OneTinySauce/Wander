@@ -11,6 +11,7 @@ func _ready():
 
 func _on_start_pressed():
 	sfx.play()
+	await sfx.finished
 	get_tree().change_scene_to_file("res://Levels/level_0.tscn")
 
 func _on_quit_pressed():
