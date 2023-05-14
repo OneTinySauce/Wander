@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d340umar177gl"]
+
+[ext_resource type="Texture2D" uid="uid://bh2s70k20ws04" path="res://Art/Items/items_2.png" id="1_qhbvb"]
+[ext_resource type="Script" path="res://Levels/torch.gd" id="2_xunhb"]
+[ext_resource type="AudioStream" uid="uid://3sykplqg3d06" path="res://Music/SFX/Wanderer_SFX_Torch_Light.mp3" id="3_hx3l1"]
+[ext_resource type="AudioStream" uid="uid://dpvbcpi1oieyo" path="res://Music/SFX/Wanderer_SFX_Torch_Out.mp3" id="4_2hbuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mubb1"]
+size = Vector2(12, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x47q2"]
+
+[node name="torch" type="Sprite2D"]
+position = Vector2(80, 48)
+texture = ExtResource("1_qhbvb")
+hframes = 6
+vframes = 2
+frame = 4
+script = ExtResource("2_xunhb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-80, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(80, 48)
+shape = SubResource("RectangleShape2D_mubb1")
+
+[node name="lightOn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hx3l1")
+
+[node name="lightOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2hbuo")
+volume_db = 10.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x47q2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
