@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbfl3sde3fdrv"]
+[gd_scene load_steps=10 format=3 uid="uid://bo3gwhbhoycp3"]
 
 [ext_resource type="FontFile" uid="uid://cq71ss4s7fw0y" path="res://Dialogues/PrStart.ttf" id="1_ka7uj"]
 [ext_resource type="PackedScene" uid="uid://cuakuu1g3vqt5" path="res://Dialogues/dialogue.tscn" id="1_o1cm4"]

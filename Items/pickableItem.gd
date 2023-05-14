@@ -14,6 +14,7 @@ func _input(event):
 	if player_enter and Input.is_action_just_pressed('dialog') and not is_dialogue():
 		var dia_scene = load("res://Dialogues/dialogue.tscn")
 		var dia = dia_scene.instantiate()
+		dia.kind = get_name().rstrip("0123456789")
 		dia.dialogue_path = dialog_path
 		dia.is_inside_tree()
 		add_child(dia)

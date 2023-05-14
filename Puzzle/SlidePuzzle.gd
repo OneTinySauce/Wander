@@ -21,8 +21,8 @@ func _ready():
 		order.append(i)
 	randomize()
 	order.shuffle()
-	# testing order
-	order = [0,1,2,3,4,5,6,8,7]
+#	# testing order
+#	order = [0,1,2,3,4,5,6,8,7]
 	for i in range(puzzle_size):
 		var row = []
 		for j in range(puzzle_size):

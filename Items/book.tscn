@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0waef"]
 radius = 13.0
 
-[node name="Book" type="Sprite2D"]
+[node name="BookA" type="Sprite2D"]
 texture = ExtResource("1_x3e52")
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 16)

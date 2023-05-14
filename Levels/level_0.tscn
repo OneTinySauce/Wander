@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ca883djrqmshf" path="res://tree/tree.tscn" id="10_iblka"]
 [ext_resource type="Texture2D" uid="uid://c4csu8305364j" path="res://Art/fence.png" id="12_n0yd1"]
 [ext_resource type="PackedScene" uid="uid://rymp28xxye5d" path="res://Items/arrow.tscn" id="13_24ale"]
-[ext_resource type="PackedScene" path="res://Items/shield_piackable.tscn" id="14_8mtot"]
+[ext_resource type="PackedScene" uid="uid://dtf8ekt8y8c4l" path="res://Items/shield_piackable.tscn" id="14_8mtot"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("2_qw6cq")
