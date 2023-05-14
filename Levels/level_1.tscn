@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://dd8oi76a30jfl" path="res://Items/spear.tscn" id="14_20vv3"]
 [ext_resource type="PackedScene" uid="uid://co14w81msi81q" path="res://Levels/puzzle_door.tscn" id="15_enkql"]
 [ext_resource type="PackedScene" uid="uid://dbrtns1ao44wk" path="res://Levels/next_level_door.tscn" id="15_m2usr"]
-[ext_resource type="PackedScene" uid="uid://cbl4krob1o51g" path="res://Items/crown_pickable.tscn" id="17_t4l62"]
+[ext_resource type="PackedScene" path="res://Items/crown_pickable.tscn" id="17_t4l62"]
 [ext_resource type="Texture2D" uid="uid://bh2s70k20ws04" path="res://Art/Items/items_2.png" id="18_j5cry"]
-[ext_resource type="PackedScene" uid="uid://dfy1q05khkf6d" path="res://Items/sward_pickble.tscn" id="19_ai4cl"]
+[ext_resource type="PackedScene" path="res://Items/sward_pickble.tscn" id="19_ai4cl"]
 [ext_resource type="Script" path="res://Items/pedestal.gd" id="19_jg2bw"]
-[ext_resource type="PackedScene" uid="uid://chh32ncluimue" path="res://Items/skull_pickable.tscn" id="20_uxnl2"]
-[ext_resource type="PackedScene" uid="uid://dtf8ekt8y8c4l" path="res://Items/shield_piackable.tscn" id="21_60qy4"]
+[ext_resource type="PackedScene" path="res://Items/skull_pickable.tscn" id="20_uxnl2"]
+[ext_resource type="PackedScene" path="res://Items/shield_piackable.tscn" id="21_60qy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("1_jgsd3")
