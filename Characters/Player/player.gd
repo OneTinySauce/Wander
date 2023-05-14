@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 
 const MAX_SPEED = 40
-const ACCELERATION = 100
-const FRICTION = 300
+const ACCELERATION = 400
+const FRICTION = 400
 const RUN_SPEED_SCALE : float = 1.4
-const START_POSTION : Vector2 = Vector2(0,1)
+const START_POSTION : Vector2 = Vector2(0,-1)
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
@@ -30,6 +30,7 @@ func _ready():
 	animationTree.active = true
 	# at start facing down
 	animationTree.set("parameters/Idle/blend_position", START_POSTION)
+	animationState.travel("Idle")
 
 func _input(event):
 	# Get input strength as a Vector2

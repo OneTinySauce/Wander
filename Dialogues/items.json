@@ -7,5 +7,7 @@
 	{"Name":"Sward", "Text":"Sward test"},
 	{"Name":"Pickaxe", "Text":"Pickaxe test"},
 	{"Name":"Letter", "Text":"Letter?"},
-	{"Name":"Pedestal", "Text":"What is this for?"},
+	{"Name":"Pedestal", "Text":"This pedestal has some arcane feel to it..."},
+	{"Name":"Pedestal", "Text":"Should I try placing an item on it?"},
+	{"Name":"Armor", "Text":"These were probably used extensively there's a lot of them scattered around"},
 ]
