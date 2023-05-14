@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://38tf8f80uidr"]
+
+[ext_resource type="Texture2D" uid="uid://mbci6whjncku" path="res://Art/Items/nym.png" id="1_hj5k4"]
+[ext_resource type="Script" path="res://Puzzle/SlidePuzzle.gd" id="2_tnk3p"]
+
+[node name="SlidePuzzle" type="Sprite2D"]
+position = Vector2(80, -32)
+texture = ExtResource("1_hj5k4")
+script = ExtResource("2_tnk3p")

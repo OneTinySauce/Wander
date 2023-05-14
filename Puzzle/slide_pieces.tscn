@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://h4d0hsb18mcf"]
+
+[ext_resource type="Texture2D" uid="uid://mbci6whjncku" path="res://Art/Items/nym.png" id="1_1ud30"]
+[ext_resource type="Script" path="res://Puzzle/slide_pieces.gd" id="2_blftd"]
+[ext_resource type="AudioStream" uid="uid://bp150hydoypih" path="res://Music/SFX/Wanderer_SFX_SlidePuzzle_3.mp3" id="3_xehed"]
+[ext_resource type="AudioStream" uid="uid://bru3e5owm0o73" path="res://Music/SFX/Wanderer_SFX_SlidePuzzle_1.mp3" id="4_ewh5d"]
+[ext_resource type="AudioStream" uid="uid://cx504305x1kxh" path="res://Music/SFX/Wanderer_SFX_SlidePuzzle_2.mp3" id="5_dxlfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0sie"]
+size = Vector2(24, 24)
+
+[sub_resource type="Animation" id="Animation_k04np"]
+resource_name = "shake"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0174533, 0.0174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shake:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xldke"]
+_data = {
+"shake": SubResource("Animation_k04np")
+}
+
+[node name="SlidePieces" type="Sprite2D"]
+texture = ExtResource("1_1ud30")
+hframes = 3
+vframes = 3
+frame = 1
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+script = ExtResource("2_blftd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_f0sie")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xldke")
+}
+
+[node name="shake" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xehed")
+volume_db = 10.0
+
+[node name="move1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ewh5d")
+volume_db = 10.0
+
+[node name="move2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dxlfw")
+volume_db = 10.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

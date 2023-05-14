@@ -29,6 +29,8 @@ func _on_pedestal_puzzle_wrong():
 func _on_torch_puzzle_sloved():
 	puzzle_sloved()
 
-
 func _on_torch_puzzle_wrong():
 	puzzle_wrong()
+
+func _on_slide_puzzle_sloved():
+	puzzle_sloved()

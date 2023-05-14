@@ -1007,7 +1007,7 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(3, 7, 0, 7, 7, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(112, 206)
+position = Vector2(112, 192)
 limit_left = -69
 limit_top = -54
 limit_right = 292
@@ -1015,7 +1015,7 @@ limit_bottom = 213
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("8_va858")]
 light_mask = 3
-position = Vector2(112, 206)
+position = Vector2(112, 192)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -1067,6 +1067,10 @@ stream = ExtResource("20_lrdk2")
 
 [node name="puzzle_fail" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_jubop")
+
+[node name="PreLevelDoor" parent="." instance=ExtResource("18_fhb61")]
+position = Vector2(113, 208)
+to_level_path = "res://Levels/level_1.tscn"
 
 [connection signal="sloved" from="torchPuzzle" to="." method="_on_torch_puzzle_sloved"]
 [connection signal="wrong" from="torchPuzzle" to="." method="_on_torch_puzzle_wrong"]
