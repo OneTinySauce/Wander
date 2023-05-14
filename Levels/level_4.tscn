@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://s5ga6o4kksm1"]
+[gd_scene load_steps=33 format=3 uid="uid://s5ga6o4kksm1"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_68fr5"]
 [ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="2_x10wt"]
@@ -13,12 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://dkcdyjfqluvqi" path="res://Characters/Player/player.tscn" id="10_rvadf"]
 [ext_resource type="Texture2D" uid="uid://noqh5j4612qk" path="res://Art/Items/tapestry.png" id="11_54koy"]
 [ext_resource type="AudioStream" uid="uid://p5vwgr6rpwmr" path="res://Music/Area_ThroneRoom_1.1.wav" id="11_ld70p"]
-[ext_resource type="PackedScene" path="res://Items/throne.tscn" id="14_y27rm"]
-[ext_resource type="PackedScene" path="res://Items/letter.tscn" id="15_rx0lf"]
+[ext_resource type="PackedScene" uid="uid://cvy0uus3nby4r" path="res://Items/throne.tscn" id="14_y27rm"]
+[ext_resource type="Script" path="res://Items/throne.gd" id="15_65gkv"]
+[ext_resource type="PackedScene" uid="uid://dvrhctu1t7cuv" path="res://Items/letter.tscn" id="15_rx0lf"]
 [ext_resource type="PackedScene" uid="uid://c6f2pmg5hl8he" path="res://Items/sward.tscn" id="16_30dix"]
 [ext_resource type="PackedScene" uid="uid://if53d88m3ndi" path="res://Items/armo.tscn" id="17_bk411"]
-[ext_resource type="PackedScene" path="res://Items/papaer.tscn" id="18_pk1ow"]
-[ext_resource type="PackedScene" path="res://Items/book.tscn" id="18_ql4w2"]
+[ext_resource type="PackedScene" uid="uid://cbhyvxgrd7y4v" path="res://Items/papaer.tscn" id="18_pk1ow"]
+[ext_resource type="PackedScene" uid="uid://dgv6oyg6ybe8p" path="res://Items/book.tscn" id="18_ql4w2"]
+[ext_resource type="PackedScene" uid="uid://dbrtns1ao44wk" path="res://Levels/next_level_door.tscn" id="21_qd50o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("2_x10wt")
@@ -1049,14 +1051,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 1
-layer_2/tile_data = PackedInt32Array(655370, 65544, 1, 655363, 65544, 1, 393219, 65544, 1, 393226, 65544, 1, 131082, 65544, 1, 131075, 65544, 1, -131069, 65544, 1, -131062, 65544, 1, -393206, 65544, 1, -393213, 65544, 1, -655350, 65544, 1, -655357, 65544, 1, -917500, 589828, 0, -917495, 589828, 2)
-layer_3/name = "Tapestries"
-layer_3/enabled = true
-layer_3/modulate = Color(1, 1, 1, 1)
-layer_3/y_sort_enabled = false
-layer_3/y_sort_origin = 0
-layer_3/z_index = 2
-layer_3/tile_data = PackedInt32Array(720893, 9, 0, 458749, 9, 0, 196605, 9, 0, -327683, 9, 0, -589827, 9, 0, -1245181, 9, 0, -1245176, 9, 65536, -655346, 9, 65536, -131058, 9, 65536, 393230, 9, 65536, 655374, 9, 65536, 131087, 196617, 65537, -393201, 196617, 65537, -65539, 196617, 1)
+layer_2/tile_data = PackedInt32Array(655370, 65544, 1, 655363, 65544, 1, 393219, 65544, 1, 393226, 65544, 1, 131082, 65544, 1, 131075, 65544, 1, -131069, 65544, 1, -131062, 65544, 1, -393206, 65544, 1, -393213, 65544, 1, -655350, 65544, 1, -655357, 65544, 1, 720893, 9, 0, 458749, 9, 0, 196605, 9, 0, -327683, 9, 0, -589827, 9, 0, -65539, 196617, 1, 655374, 9, 65536, 393230, 9, 65536, -131058, 9, 65536, -655346, 9, 65536, -393201, 196617, 65537, 131087, 196617, 65537, -917500, 589828, 0, -917495, 589828, 2, -1245181, 9, 0, -1245176, 9, 65536)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(112, 216)
@@ -1078,6 +1073,8 @@ autoplay = true
 
 [node name="Throne" parent="." instance=ExtResource("14_y27rm")]
 position = Vector2(112, -296)
+script = ExtResource("15_65gkv")
+dialog_path = null
 
 [node name="Letter" parent="." instance=ExtResource("15_rx0lf")]
 position = Vector2(112, -248)
@@ -1100,3 +1097,7 @@ position = Vector2(240, -306)
 
 [node name="Sward3" parent="." instance=ExtResource("16_30dix")]
 position = Vector2(-32, -321)
+
+[node name="NextLevelDoor" parent="." instance=ExtResource("21_qd50o")]
+position = Vector2(112, -297)
+to_level_path = "res://Misc/game_end_animation.tscn"
