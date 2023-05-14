@@ -31,3 +31,6 @@ func ending():
 		end = false
 		$AnimationPlayer.play("Text")
 		$endBGM.play()
+
+func change_scene_to_menu():
+	get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
