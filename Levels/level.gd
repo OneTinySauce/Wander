@@ -10,12 +10,25 @@ func _ready():
 	var transition_scene_instance = transition_scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN)
 	add_child(transition_scene_instance)
 
-func _on_pedestal_puzzle_sloved():
+func puzzle_sloved():
 	if not is_sloved:
 		is_sloved = true
 		$puzzle_solved.play()
 		$PuzzleDoor.open()
 
-func _on_pedestal_puzzle_wrong():
+func puzzle_wrong():
 	if !$puzzle_fail.is_playing():
 		$puzzle_fail.play()
+
+func _on_pedestal_puzzle_sloved():
+	puzzle_sloved()
+
+func _on_pedestal_puzzle_wrong():
+	puzzle_wrong()
+
+func _on_torch_puzzle_sloved():
+	puzzle_sloved()
+
+
+func _on_torch_puzzle_wrong():
+	puzzle_wrong()
