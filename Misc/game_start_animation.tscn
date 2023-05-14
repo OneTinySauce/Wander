@@ -1,68 +1,289 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo3gwhbhoycp3"]
+[gd_scene load_steps=10 format=3 uid="uid://fijdp8k48ke6"]
 
+[ext_resource type="Script" path="res://Misc/game_start_animation.gd" id="1_10qnm"]
 [ext_resource type="FontFile" uid="uid://cq71ss4s7fw0y" path="res://Dialogues/PrStart.ttf" id="1_csd1o"]
+[ext_resource type="AudioStream" uid="uid://cqwt8ela0i8vu" path="res://Music/SFX/Wind_blow.wav" id="1_dop3a"]
+[ext_resource type="AudioStream" uid="uid://sybcuebhnhb7" path="res://Music/SFX/Footsteps_1.wav" id="1_jpyfj"]
+[ext_resource type="AudioStream" uid="uid://b261cx4hgma81" path="res://Music/Piano_Cutscene.wav" id="2_a2fhw"]
+[ext_resource type="AudioStream" uid="uid://cxwiymebpd3wm" path="res://Music/SFX/Wind.wav" id="4_7khuh"]
 
 [sub_resource type="Animation" id="Animation_gfssq"]
 resource_name = "Text"
-length = 10.0
+length = 26.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("JRR:theme_override_colors/default_color")
+tracks/0/path = NodePath("Team:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.7, 3.4, 4.9, 5.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 1, 6.1, 8),
+"transitions": PackedFloat32Array(1.4, 1.4, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BGM")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wander:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(19, 21),
+"transitions": PackedFloat32Array(1, 1.4),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.7, 8.1, 16.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX_layer_2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.4, 3.4, 4.4, 5.4, 6.4, 9, 10, 11, 12, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX_layer_2:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_jpyfj")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX_layer_2:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.4, 6.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-18.0, -18.0, -12.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX_layer_2:pitch_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.4, 3.4, 4.4, 5.4, 6.4, 9, 10, 11, 12, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.9, 1.0, 0.9, 1.0, 1.0, 0.9, 1.0, 0.9, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(22.1, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("JRR:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(11.2, 12, 18, 18.8),
+"transitions": PackedFloat32Array(1.39, 1, 1.4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(26),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xnvom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("JRR:theme_override_colors/font_shadow_color")
+tracks/1/path = NodePath("Wander:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.7, 3.4, 5.6, 6.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.12549, 0.235294, 0.337255, 1), Color(0.12549, 0.235294, 0.337255, 1), Color(0, 0, 0, 1)]
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX_layer_2:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX_layer_2:pitch_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("JRR:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8h8o4"]
 _data = {
+"RESET": SubResource("Animation_xnvom"),
 "Text": SubResource("Animation_gfssq")
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_10qnm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 243.0
-offset_bottom = 181.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Text"
 libraries = {
 "": SubResource("AnimationLibrary_8h8o4")
 }
 
-[node name="JRR" type="RichTextLabel" parent="."]
-offset_left = 19.0
-offset_top = 64.0
-offset_right = 232.0
-offset_bottom = 130.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("1_csd1o")
-theme_override_font_sizes/normal_font_size = 11
-text = "“Not all those who wander are lost.”
-
-
-	-J.R.R. Tolkien"
-
 [node name="Wander" type="RichTextLabel" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -81,22 +302,64 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Wander"
 
 [node name="Team" type="RichTextLabel" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -78.5
-offset_top = -17.0
-offset_right = 76.5
-offset_bottom = 49.0
+offset_top = -18.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.0509804, 0.168627, 0.270588, 1)
 theme_override_fonts/normal_font = ExtResource("1_csd1o")
 theme_override_font_sizes/normal_font_size = 11
-text = " Team Wanders 
+bbcode_enabled = true
+text = "[center]Team Wanders 
 
-    Persent"
+
+Present
+[/center]"
+
+[node name="JRR" type="RichTextLabel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 72.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.12549, 0.235294, 0.337255, 1)
+theme_override_fonts/normal_font = ExtResource("1_csd1o")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center]“Not all those who wander are lost.”[/center]
+
+[right]-J.R.R. Tolkien[/right]"
+visible_characters_behavior = 1
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a2fhw")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_dop3a")
+volume_db = -6.0
+
+[node name="SFX_layer_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_jpyfj")
+volume_db = -6.0
+
+[node name="SFX_BG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7khuh")
+autoplay = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

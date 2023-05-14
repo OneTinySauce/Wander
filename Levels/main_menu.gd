@@ -12,7 +12,7 @@ func _ready():
 func _on_start_pressed():
 	anim.queue("StartPressed")
 	await anim.animation_finished
-	get_tree().change_scene_to_file("res://Levels/level_0.tscn")
+	get_tree().change_scene_to_file("res://Misc/game_start_animation.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()

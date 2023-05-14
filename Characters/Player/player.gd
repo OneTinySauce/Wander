@@ -51,6 +51,8 @@ func _physics_process(delta):
 	if input_vector != Vector2.ZERO:
 		# animation
 		animationTree.set("parameters/Idle/blend_position", input_vector)
+		animationTree.set("parameters/Hold_Idle/blend_position", input_vector)
+		animationTree.set("parameters/Hold_Run/BlendSpace2D/blend_position", input_vector)
 		animationTree.set("parameters/Run/BlendSpace2D/blend_position", input_vector)
 		# movement
 		velocity = velocity.move_toward(input_vector * MAX_SPEED * (1 + Input.get_action_strength("run")), ACCELERATION * delta)
@@ -62,6 +64,7 @@ func _physics_process(delta):
 			speedScale = 1.0
 		# Set the animation speed scale according to the speedScale variable
 		animationTree.set("parameters/Run/runSpeedScale/scale", speedScale)
+		animationTree.set("parameters/Hold_Run/holdRunSpeedScale/scale", speedScale)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 
@@ -70,7 +73,12 @@ func _physics_process(delta):
 
 func pick_state():
 	if(velocity != Vector2.ZERO):
-		#if picked_item != null: #todo: make a hold animation for the player
-		animationState.travel("Run")
+		if picked_item != null:
+			animationState.travel("Hold_Run")
+		else:
+			animationState.travel("Run")
 	else:
-		animationState.travel("Idle")
+		if picked_item != null:
+			animationState.travel("Hold_Idle")
+		else:
+			animationState.travel("Idle")
