@@ -28,6 +28,7 @@ func _input(event):
 	if placed_item and Input.is_action_just_pressed("grab") and player_enter and currently_placed_item != null and not solved:
 		placed_item.position.x = self.position.x + randi_range(-16, 16)
 		placed_item.position.y = self.position.y - randi_range(8, 16)
+		currently_placed_item.z_index = 0
 		placed_item = null
 		currently_placed_item = null
 
@@ -38,6 +39,7 @@ func _input(event):
 			if currently_placed_item != null:
 				currently_placed_item.position.x = self.position.x + randi_range(-16, 16)
 				currently_placed_item.position.y = self.position.y - randi_range(8, 16)
+				currently_placed_item.z_index = 0
 				currently_placed_item = null
 			placed_item.position.x = self.position.x
 			placed_item.position.y = self.position.y - 8
