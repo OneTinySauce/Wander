@@ -33,7 +33,7 @@ func _input(event):
 		currently_placed_item = null
 
 	if placed_item and Input.is_action_just_released("grab"):
-		if solved:
+		if solved: 
 			pass
 		else:
 			if currently_placed_item != null:
@@ -57,7 +57,6 @@ func _input(event):
 
 func is_dialogue():
 	return get_tree().get_nodes_in_group('dialogue').size() > 0
-
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
