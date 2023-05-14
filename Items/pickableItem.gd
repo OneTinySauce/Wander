@@ -24,7 +24,7 @@ func _input(event):
 
 
 func _physics_process(delta):
-	if player_enter and not pedestal_placeable and Input.is_action_pressed("grab"):
+	if player_enter and not pedestal_placeable and not pedestal_placed and Input.is_action_pressed("grab"):
 		if not player.picked_item or player.picked_item == self:
 			self.position.x = player.position.x
 			self.position.y = player.position.y - 16
