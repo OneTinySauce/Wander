@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://be1rb3isaf1yp"]
+
+[ext_resource type="Texture2D" uid="uid://bsqntt6cayeji" path="res://Art/Items/items_3.png" id="1_ag4ht"]
+[ext_resource type="Script" path="res://Items/arrow.gd" id="2_flbif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b74pl"]
+size = Vector2(20, 28)
+
+[node name="Chello" type="Sprite2D"]
+texture = ExtResource("1_ag4ht")
+region_enabled = true
+region_rect = Rect2(32, 64, 16, 32)
+script = ExtResource("2_flbif")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(7, -5, 7, 16, -7, 16, -7, -5, -3, -5, -3, -16, 3, -16, 3, -5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_b74pl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

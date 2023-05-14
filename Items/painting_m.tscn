@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4oxt8jtcfmiv"]
+
+[ext_resource type="Texture2D" uid="uid://bsqntt6cayeji" path="res://Art/Items/items_3.png" id="1_l4ug0"]
+[ext_resource type="Script" path="res://Items/arrow.gd" id="2_qj0xk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0waef"]
+radius = 17.0
+
+[node name="PaintingM" type="Sprite2D"]
+texture = ExtResource("1_l4ug0")
+region_enabled = true
+region_rect = Rect2(0, 48, 32, 16)
+script = ExtResource("2_qj0xk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(14, 8, -14, 8, -14, -8, 14, -8)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_0waef")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

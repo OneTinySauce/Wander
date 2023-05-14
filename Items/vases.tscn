@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dim1gu2jsjwg6"]
+
+[ext_resource type="Texture2D" uid="uid://bsqntt6cayeji" path="res://Art/Items/items_3.png" id="1_ugo3g"]
+[ext_resource type="Script" path="res://Items/arrow.gd" id="2_6ge1q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0waef"]
+radius = 13.0
+
+[node name="Vases" type="Sprite2D"]
+texture = ExtResource("1_ugo3g")
+region_enabled = true
+region_rect = Rect2(0, 80, 16, 16)
+script = ExtResource("2_6ge1q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(6, 8, -5, 8, -8, 5, -8, -1, -4, -8, 4, -8, 8, -1, 8, 5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0waef")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

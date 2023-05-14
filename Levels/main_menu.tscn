@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Levels/main_menu.gd" id="2_6gyob"]
 [ext_resource type="Texture2D" uid="uid://do8cj1halr7ht" path="res://Art/buttonfocus9.png" id="2_qv43w"]
 [ext_resource type="AudioStream" uid="uid://cbqtdvd7veq3l" path="res://Music/MenuTheme_1.0.wav" id="3_71kel"]
-[ext_resource type="StyleBox" uid="uid://bvlk07adbi2pa" path="res://Art/main_menu_button.tres" id="3_ornwb"]
+[ext_resource type="StyleBox" path="res://Art/main_menu_button.tres" id="3_ornwb"]
 [ext_resource type="Texture2D" uid="uid://b23qupoc7241w" path="res://Art/buttonpressed9.png" id="4_62886"]
 [ext_resource type="Texture2D" uid="uid://bv0lwlff2denq" path="res://Art/wander_logo.png" id="4_bowlk"]
 [ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="6_pmuoy"]

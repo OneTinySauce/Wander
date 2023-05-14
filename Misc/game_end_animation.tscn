@@ -1,0 +1,182 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo3gwhbhoycp3"]
+
+[ext_resource type="FontFile" uid="uid://cq71ss4s7fw0y" path="res://Dialogues/PrStart.ttf" id="1_ka7uj"]
+[ext_resource type="PackedScene" uid="uid://cuakuu1g3vqt5" path="res://Dialogues/dialogue.tscn" id="1_o1cm4"]
+[ext_resource type="Script" path="res://Misc/game_end_animation.gd" id="1_w46a7"]
+[ext_resource type="Texture2D" uid="uid://bnc663twds4y3" path="res://Art/Characters/mc.png" id="3_pc2bp"]
+[ext_resource type="Texture2D" uid="uid://bh2s70k20ws04" path="res://Art/Items/items_2.png" id="4_xn5lc"]
+[ext_resource type="Texture2D" uid="uid://bsqntt6cayeji" path="res://Art/Items/items_3.png" id="5_jln7f"]
+[ext_resource type="AudioStream" uid="uid://k1re4c5guwvb" path="res://Music/EndingTheme_1.0.wav" id="7_at6tp"]
+
+[sub_resource type="Animation" id="Animation_gfssq"]
+resource_name = "Text"
+length = 46.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mc:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(123, 220), Vector2(123, -50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.4, 11.1, 17.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(123, 210), Vector2(123, 81.75), Vector2(110, 92), Vector2(110, -20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crown:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.4, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.129154, -0.129012, -6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Throne:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13, 45.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(123, 212), Vector2(123, -58), Vector2(123, -58)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("roll credit:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 45.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [Vector2(0, 300), Vector2(0, -500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8h8o4"]
+_data = {
+"Text": SubResource("Animation_gfssq")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_w46a7")
+
+[node name="Dialogue" parent="." instance=ExtResource("1_o1cm4")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 245.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8h8o4")
+}
+
+[node name="roll credit" type="RichTextLabel" parent="."]
+offset_top = -500.0
+offset_right = 245.0
+offset_bottom = -65.1351
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0509804, 0.168627, 0.270588, 1)
+theme_override_fonts/normal_font = ExtResource("1_ka7uj")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]Developed By Team 
+
+[font_size=10]The Wanders[/font_size]
+
+TinySauce
+ClairdeLou
+digitbraul
+Saybayry
+Brandon
+
+
+
+[font_size=10]Script & Deisgn[/font_size]
+
+Brandon
+
+
+
+[font_size=10]Programming[/font_size]
+
+TinySauce
+digitbraul
+
+
+
+[font_size=10]Music & SFX[/font_size]
+
+ClairdeLou
+
+
+
+[font_size=10]Graphics[/font_size]
+
+Saybayry
+digitbraul
+
+
+
+[font_size=10]Special Thanks[/font_size]
+
+@SoloSalsero
+Justin
+Dean
+
+
+
+
+
+
+Thank You For Playing!
+[/center]"
+scroll_active = false
+
+[node name="Mc" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(123, 219.182)
+texture = ExtResource("3_pc2bp")
+
+[node name="Crown" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(122.954, 209.187)
+rotation = -0.146788
+texture = ExtResource("4_xn5lc")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="Throne" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(123, -58)
+texture = ExtResource("5_jln7f")
+region_enabled = true
+region_rect = Rect2(32, 0, 48, 48)
+
+[node name="endBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_at6tp")
+
+[connection signal="child_exiting_tree" from="Dialogue" to="." method="_on_dialogue_child_exiting_tree"]
+[connection signal="dia_close" from="Dialogue" to="." method="_on_dialogue_dia_close"]

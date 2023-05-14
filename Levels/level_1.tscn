@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://dd8oi76a30jfl" path="res://Items/spear.tscn" id="14_20vv3"]
 [ext_resource type="PackedScene" uid="uid://co14w81msi81q" path="res://Levels/puzzle_door.tscn" id="15_enkql"]
 [ext_resource type="PackedScene" uid="uid://dbrtns1ao44wk" path="res://Levels/next_level_door.tscn" id="15_m2usr"]
-[ext_resource type="PackedScene" path="res://Items/crown_pickable.tscn" id="17_t4l62"]
+[ext_resource type="PackedScene" uid="uid://cbl4krob1o51g" path="res://Items/crown_pickable.tscn" id="17_t4l62"]
 [ext_resource type="Texture2D" uid="uid://bh2s70k20ws04" path="res://Art/Items/items_2.png" id="18_j5cry"]
-[ext_resource type="PackedScene" path="res://Items/sward_pickble.tscn" id="19_ai4cl"]
+[ext_resource type="PackedScene" uid="uid://dfy1q05khkf6d" path="res://Items/sward_pickble.tscn" id="19_ai4cl"]
 [ext_resource type="Script" path="res://Items/pedestal.gd" id="19_jg2bw"]
-[ext_resource type="PackedScene" path="res://Items/skull_pickable.tscn" id="20_uxnl2"]
-[ext_resource type="PackedScene" path="res://Items/shield_piackable.tscn" id="21_60qy4"]
+[ext_resource type="PackedScene" uid="uid://chh32ncluimue" path="res://Items/skull_pickable.tscn" id="20_uxnl2"]
+[ext_resource type="PackedScene" uid="uid://dtf8ekt8y8c4l" path="res://Items/shield_piackable.tscn" id="21_60qy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("1_jgsd3")
@@ -1001,20 +1001,21 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(65540, 4, 0, 65545, 4, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(112, 193)
+position = Vector2(112, 190)
 limit_left = -69
 limit_top = -54
 limit_right = 292
 limit_bottom = 213
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_5d4ga")]
-position = Vector2(112, 193)
+position = Vector2(112, 190)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_y06cw")
+volume_db = -3.0
 autoplay = true
 
 [node name="puzzle_solved" type="AudioStreamPlayer2D" parent="."]
@@ -1047,10 +1048,6 @@ rotation = -2.00496
 [node name="NextLevelDoor" parent="." instance=ExtResource("15_m2usr")]
 position = Vector2(112, -37)
 to_level_path = "res://Levels/level_2.tscn"
-
-[node name="PreLevelDoor" parent="." instance=ExtResource("15_m2usr")]
-position = Vector2(113, 208)
-to_level_path = "res://Levels/level_0.tscn"
 
 [node name="PuzzleDoor" parent="." instance=ExtResource("15_enkql")]
 position = Vector2(112, -40)

@@ -9,10 +9,12 @@ var dialog
 var phrase_num = 0
 var finished = false
 var kind = null
+signal dia_close
 
 func _ready():
-	# pause player actions
-	player.pause_player()
+	if player:
+		# pause player actions
+		player.pause_player()
 	# init dialog
 	dialog = get_dialog()
 	if dialog == null:
@@ -22,7 +24,8 @@ func _ready():
 
 func _exit_tree():
 	# resume player actions
-	player.resume_player()
+	if player:
+		player.resume_player()
 
 func _process(delta):
 	# continue to next phrase if space pressed
@@ -54,6 +57,7 @@ func next_phrase():
 	# if no more phrase to show return
 	if phrase_num >= len(dialog):
 		queue_free()
+		dia_close.emit()
 		return
 		
 	# strat a new print

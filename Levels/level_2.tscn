@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://g8oph1xt1wep"]
+[gd_scene load_steps=32 format=3 uid="uid://g8oph1xt1wep"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_g2otu"]
 [ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="1_hnt6f"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bdhyvjl2ywj6e" path="res://Puzzle/torch_puzzle.tscn" id="19_gd35o"]
 [ext_resource type="AudioStream" uid="uid://yu60n3201nup" path="res://Music/SFX/Wanderer_SFX_Puzzle_Solve.mp3" id="20_lrdk2"]
 [ext_resource type="AudioStream" uid="uid://cn2xa4bfam6m4" path="res://Music/SFX/Wanderer_SFX_Puzzle_Fail.mp3" id="21_jubop"]
+[ext_resource type="PackedScene" uid="uid://dgv6oyg6ybe8p" path="res://Items/book.tscn" id="22_6r4dk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("1_hnt6f")
@@ -1068,9 +1069,8 @@ stream = ExtResource("20_lrdk2")
 [node name="puzzle_fail" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_jubop")
 
-[node name="PreLevelDoor" parent="." instance=ExtResource("18_fhb61")]
-position = Vector2(113, 208)
-to_level_path = "res://Levels/level_1.tscn"
+[node name="Book" parent="." instance=ExtResource("22_6r4dk")]
+position = Vector2(-24, 8)
 
 [connection signal="sloved" from="torchPuzzle" to="." method="_on_torch_puzzle_sloved"]
 [connection signal="wrong" from="torchPuzzle" to="." method="_on_torch_puzzle_wrong"]
