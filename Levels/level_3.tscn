@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b03i46pa0d84f"]
+[gd_scene load_steps=35 format=3 uid="uid://b03i46pa0d84f"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_pmtli"]
 [ext_resource type="Texture2D" uid="uid://bv1j17dfs6qrx" path="res://Art/TileMap/rock-archs.png" id="2_mivjc"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cmj6m7ky0xkuo" path="res://Items/painting_s.tscn" id="21_syp21"]
 [ext_resource type="PackedScene" uid="uid://c4oxt8jtcfmiv" path="res://Items/painting_m.tscn" id="22_vu8r7"]
 [ext_resource type="PackedScene" uid="uid://dgv6oyg6ybe8p" path="res://Items/book.tscn" id="23_h6gb4"]
+[ext_resource type="PackedScene" uid="uid://be1rb3isaf1yp" path="res://Items/chello.tscn" id="24_0rccb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("2_mivjc")
@@ -1109,8 +1110,11 @@ position = Vector2(280, -88)
 [node name="PaintingS4" parent="." instance=ExtResource("21_syp21")]
 position = Vector2(264, -88)
 
-[node name="Book" parent="." instance=ExtResource("23_h6gb4")]
+[node name="BookA" parent="." instance=ExtResource("23_h6gb4")]
 position = Vector2(141, 84)
 rotation = -0.526709
+
+[node name="Chello" parent="." instance=ExtResource("24_0rccb")]
+position = Vector2(8, -72)
 
 [connection signal="sloved" from="SlidePuzzle" to="." method="_on_slide_puzzle_sloved"]

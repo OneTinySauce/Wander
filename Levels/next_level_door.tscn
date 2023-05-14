@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Levels/Area2D.gd" id="1_mkouq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r4ly"]
-size = Vector2(58, 18.5)
+size = Vector2(73, 18.5)
 
 [sub_resource type="Animation" id="Animation_4ntjx"]
 length = 0.001
@@ -73,7 +73,7 @@ position = Vector2(33, -54)
 script = ExtResource("1_mkouq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6.75)
+position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_5r4ly")
 
 [node name="LevelTransitionAnim" type="AnimationPlayer" parent="."]
