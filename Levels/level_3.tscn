@@ -17,13 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://w3p0adnpck2p" path="res://Items/paint_brush.tscn" id="14_qfhey"]
 [ext_resource type="PackedScene" uid="uid://ccr2j1c50e1nt" path="res://Items/harp.tscn" id="15_kkvol"]
 [ext_resource type="PackedScene" uid="uid://b6k77nstshlf6" path="res://Items/chisel.tscn" id="16_72oyi"]
-[ext_resource type="PackedScene" uid="uid://cbhyvxgrd7y4v" path="res://Items/papaer.tscn" id="18_ck0r8"]
+[ext_resource type="PackedScene" path="res://Items/papaer.tscn" id="18_ck0r8"]
 [ext_resource type="PackedScene" uid="uid://38tf8f80uidr" path="res://Puzzle/slide_puzzle.tscn" id="19_behut"]
 [ext_resource type="AudioStream" uid="uid://yu60n3201nup" path="res://Music/SFX/Wanderer_SFX_Puzzle_Solve.mp3" id="20_a8edm"]
-[ext_resource type="PackedScene" uid="uid://cmj6m7ky0xkuo" path="res://Items/painting_s.tscn" id="21_syp21"]
-[ext_resource type="PackedScene" uid="uid://c4oxt8jtcfmiv" path="res://Items/painting_m.tscn" id="22_vu8r7"]
+[ext_resource type="PackedScene" path="res://Items/painting_s.tscn" id="21_syp21"]
+[ext_resource type="PackedScene" path="res://Items/painting_m.tscn" id="22_vu8r7"]
 [ext_resource type="PackedScene" uid="uid://dgv6oyg6ybe8p" path="res://Items/book.tscn" id="23_h6gb4"]
-[ext_resource type="PackedScene" uid="uid://be1rb3isaf1yp" path="res://Items/chello.tscn" id="24_0rccb"]
+[ext_resource type="PackedScene" path="res://Items/chello.tscn" id="24_0rccb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hseyb"]
 texture = ExtResource("2_mivjc")

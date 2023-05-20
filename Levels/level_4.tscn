@@ -13,12 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://dkcdyjfqluvqi" path="res://Characters/Player/player.tscn" id="10_rvadf"]
 [ext_resource type="Texture2D" uid="uid://noqh5j4612qk" path="res://Art/Items/tapestry.png" id="11_54koy"]
 [ext_resource type="AudioStream" uid="uid://p5vwgr6rpwmr" path="res://Music/Area_ThroneRoom_1.1.wav" id="11_ld70p"]
-[ext_resource type="PackedScene" uid="uid://cvy0uus3nby4r" path="res://Items/throne.tscn" id="14_y27rm"]
+[ext_resource type="PackedScene" path="res://Items/throne.tscn" id="14_y27rm"]
 [ext_resource type="Script" path="res://Items/throne.gd" id="15_65gkv"]
-[ext_resource type="PackedScene" uid="uid://dvrhctu1t7cuv" path="res://Items/letter.tscn" id="15_rx0lf"]
+[ext_resource type="PackedScene" path="res://Items/letter.tscn" id="15_rx0lf"]
 [ext_resource type="PackedScene" uid="uid://c6f2pmg5hl8he" path="res://Items/sward.tscn" id="16_30dix"]
 [ext_resource type="PackedScene" uid="uid://if53d88m3ndi" path="res://Items/armo.tscn" id="17_bk411"]
-[ext_resource type="PackedScene" uid="uid://cbhyvxgrd7y4v" path="res://Items/papaer.tscn" id="18_pk1ow"]
+[ext_resource type="PackedScene" path="res://Items/papaer.tscn" id="18_pk1ow"]
 [ext_resource type="PackedScene" uid="uid://dgv6oyg6ybe8p" path="res://Items/book.tscn" id="18_ql4w2"]
 [ext_resource type="PackedScene" uid="uid://dbrtns1ao44wk" path="res://Levels/next_level_door.tscn" id="21_qd50o"]
 
@@ -1029,6 +1029,7 @@ sources/9 = SubResource("TileSetAtlasSource_17rpf")
 
 [node name="level4" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(0, -1)
 script = ExtResource("1_68fr5")
 
 [node name="TileMap" type="TileMap" parent="."]

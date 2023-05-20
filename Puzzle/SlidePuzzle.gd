@@ -13,13 +13,15 @@ var is_moving = false
 signal sloved
 
 func _ready():
+	seed(1) #trying out each seed individually to match them afterwards
+	# so far 1 works, 2 doesn't
 	var order_index = 0
 	# hide self
 	self.texture = null
 	# create pieces randomly
 	for i in range(9):
 		order.append(i)
-	randomize()
+	#randomize()
 	order.shuffle()
 #	# testing order
 #	order = [0,1,2,3,4,5,6,8,7]
